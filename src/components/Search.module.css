@@ -1,0 +1,27 @@
+.searchForm {
+    background-color: white;
+    padding: 15px 30px;
+}
+.searchInput {
+    width: 30%;
+    display: block;
+    box-sizing: border-box;
+    border: 0;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: auto;
+}
+@media screen and (max-width: 980px) {
+    .searchForm {
+        padding: 15px 10px;
+    }
+    .searchInput {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .searchInput {
+        width: 100%;
+    }
+}
