@@ -1,0 +1,37 @@
+.history {
+  margin: 20px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 50%;
+  min-height: 55vh;
+}
+.historyList {
+  list-style: none;
+  padding: 10px 0;
+}
+.historyListItem {
+  margin: 10px 0;
+}
+.historyListLink {
+  text-decoration: none;
+  color: rgba(31, 32, 65, 0.5);
+}
+
+.historyListLink:hover {
+  color: black;
+}
+@media screen and (max-width: 1200px) {
+  .history {
+    width: 70%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 790px) {
+  .history {
+    width: 90%;
+    text-align: center;
+  }
+}

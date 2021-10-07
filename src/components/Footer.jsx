@@ -7,7 +7,7 @@ export default function Footer() {
     <footer>
       <div className={styles.logo}><img src={logo} alt="Логотип Фото дня" /></div>
       <div className={styles.footerBottom}>
-        <p>Copyright © 2018 Toxin отель. Все права защищены.</p>
+        <p>Copyright © 2021. Все права защищены.</p>
       </div>
     </footer>
   );

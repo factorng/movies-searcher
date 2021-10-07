@@ -20,15 +20,20 @@ export default function Search() {
     setInput(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setInputSearch(input));
+  };
+
   return (
-    <form className={styles.searchForm}>
+    <form className={styles.searchForm} onSubmit={handleSubmit}>
       <input
         value={input}
         onChange={handleSearch}
         className={styles.searchInput}
         type="search"
         placeholder="Popular movies"
-        disabled={location.pathname === '/favourites'}
+        disabled={location.pathname !== '/'}
       />
     </form>
   );
