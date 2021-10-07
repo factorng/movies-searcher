@@ -3,8 +3,9 @@
     border-radius: 22px;
     overflow: hidden;
     box-sizing: border-box;
+    position: relative;
 }
-.raiting {
+.title {
     font-weight: bold;
 }
 .image {
@@ -15,14 +16,26 @@
 }
 .description {
     padding: 15px;
+    height: 150px;
+}
+.more {
+    text-decoration: none;
+    color: rgba(31, 32, 65, 0.5);
+    position: absolute;
+    padding: 15px;
+    bottom: 10px;
+    right: 0;
+}
+.more:hover {
+    color: black;
 }
 .starButton {
     border: none;
     background-color: transparent;
     cursor: pointer;
     padding: 15px;
-    position: relative;
-   
+    position: absolute;
+    bottom: 10px;
 }
 .starButton::after {
     transition: opacity 0.4s ease;

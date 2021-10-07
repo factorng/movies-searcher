@@ -8,26 +8,7 @@ header {
 .logo {
     
 }
-.menu {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-.menu__items {
-    list-style: none;
-    display: flex;
-}
-.menu__item {
-    text-decoration: none;
-    color: rgba(31, 32, 65, 0.5);
-    margin-left: 20px;
-}
-.menu__item:hover {
-    color: black;
-}
-.menu__item_active {
-    color: rgba(31, 32, 65, 0.75);
-}
+
 .button {
     margin-left: 20px;
     color: white;
@@ -39,13 +20,20 @@ header {
     transition: .9s all;
     cursor: pointer;
     transition: all 0.4s linear;
+    display: flex;
+    align-items: center;
+    height: 55px;
 }
-
 .button:hover {
     color: white; 
     border-color: rgba(31, 32, 65, 0.5); 
 }
-
+.buttonText {
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
 .burgerMenu {
     display: none;
     color: white;
@@ -65,26 +53,6 @@ header {
 @media screen and (max-width: 980px) {
     header {
         padding: 16px 10px;
-    }
-    .menu {
-        width: 50vw;
-        position: absolute;
-        flex-direction: column;
-        top: 78px;
-        right: 0;
-        background-color: white;
-        padding: 0 1rem;
-        margin: 0;
-        border-top: 2px solid #BC9CFF;
-        box-shadow: 0px 10px 20px 0px rgba(31, 32, 65, 0.05);
-    }
-    .menu__items {
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 250px;
-        padding: 0;
-    }
-    .menu__item {
     }
     .button {
         margin: 1rem 0;
