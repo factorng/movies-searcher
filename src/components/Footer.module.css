@@ -1,0 +1,20 @@
+footer {
+    margin-top: auto;
+    background-color: white;
+    padding: 16px 0;
+}
+.logo {
+    padding: 30px;;
+}
+
+.footerBottom {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border-top: 1px solid rgba(31, 32, 65, 0.25);
+}
+.footerBottom>p  {
+    padding-left: 30px;
+}
+

@@ -1,0 +1,15 @@
+.cards {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, 300px);
+    margin: 0 auto;
+}
+.notFound {
+    height:50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
