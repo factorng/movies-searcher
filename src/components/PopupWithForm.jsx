@@ -20,11 +20,7 @@ function PopupWithForm({
         isOpen ? `${styles.popup} ${styles.popupOpen}` : `${styles.popup}`
       }
     >
-      <form
-        className={styles.popupForm}
-        onSubmit={onSubmit}
-        noValidate
-      >
+      <form className={styles.popupForm} onSubmit={onSubmit} noValidate>
         <button
           className={styles.popupButtonClose}
           type="button"
@@ -32,14 +28,16 @@ function PopupWithForm({
           onClick={onClose}
         >
           X
-
         </button>
         <h3 className="popupTitle">{title}</h3>
         {children}
 
         <button
-          className={submitEnable ? styles.popupButtonSubmit
-            : `${styles.popupButtonSubmit} ${styles.popupButtonSubmitDisabled}`}
+          className={
+            submitEnable
+              ? styles.popupButtonSubmit
+              : `${styles.popupButtonSubmit} ${styles.popupButtonSubmitDisabled}`
+          }
           disabled={!submitEnable}
           type="submit"
         >

@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import styles from './Menu.module.css';
 
-export default function Menu({ login, showMobileMenu }) {
+export default function Menu({ login, showMobileMenu, setShowMobileMenu }) {
   const { width } = useWindowDimensions();
+  const menuRef = useRef('');
+
+  useEffect(() => {
+    const clickMenuCLose = (event) => {
+      const target = event.target.className;
+      if (!target.toString().includes('Menu')) {
+        setShowMobileMenu(false);
+      }
+    };
+    document.addEventListener('click', clickMenuCLose);
+    return () => document.removeEventListener('click', clickMenuCLose);
+  }, []);
   return (
     <>
       {!showMobileMenu && width < 980 ? (
         ''
       ) : (
-        <menu className={styles.menu}>
+        <menu className={styles.menu} ref={menuRef}>
           <ul className={styles.menu__items}>
             <li>
               <NavLink
@@ -53,4 +65,5 @@ export default function Menu({ login, showMobileMenu }) {
 Menu.propTypes = {
   login: PropTypes.func.isRequired,
   showMobileMenu: PropTypes.bool.isRequired,
+  setShowMobileMenu: PropTypes.func.isRequired,
 };

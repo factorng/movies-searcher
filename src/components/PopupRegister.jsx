@@ -1,20 +1,22 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PopupWithForm from './PopupWithForm';
 import useFormWithValidation from '../hooks/useFormWithValidation';
-import { toggleAuthPopup, createUser } from '../store/actions/actions';
+import { createUser, deleteHistory } from '../store/actions/actions';
 import styles from './PopupWithForm.module.css';
 
-function PopupRegister() {
+function PopupRegister({ isOpen }) {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation();
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.popupsIsOpen.auth);
+  const history = useHistory();
 
   function handleClose() {
-    dispatch(toggleAuthPopup());
+    history.push('/');
     resetForm({ email: '', password: '' });
   }
   function handleSubmit(e) {
@@ -24,9 +26,10 @@ function PopupRegister() {
       return;
     }
     if (localStorage.getItem(email)) {
-      alert('User already exists');
+      history.push('/sign-up/info?data=User already exists');
     } else {
       dispatch(createUser({ email, password, name }));
+      dispatch(deleteHistory());
       handleClose();
     }
   }
@@ -98,3 +101,7 @@ function PopupRegister() {
 }
 
 export default PopupRegister;
+
+PopupRegister.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};

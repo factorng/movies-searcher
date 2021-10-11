@@ -48,6 +48,9 @@ export function login(value) {
 export function logout() {
   return { type: 'LOGOUT' };
 }
+export function deleteHistory() {
+  return { type: 'DELETE_HISTORY' };
+}
 export function findMovies() {
   return async (dispatch, getState) => {
     const { inputSearch } = getState();
@@ -64,7 +67,6 @@ export function findMovies() {
       }
       const json = await responce.json();
       dispatch(setMovies(json.results));
-      console.log('find movies');
     } catch (err) {
       console.log(err);
     }

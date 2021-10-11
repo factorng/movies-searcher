@@ -4,9 +4,10 @@ function rootReducer(state, action) {
       return {
         ...state,
         inputSearch: action.payload,
-        history: action.payload
-          ? [...state.history, action.payload]
-          : [...state.history],
+        history:
+          action.payload && state.user.name
+            ? [...state.history, action.payload]
+            : [...state.history],
       };
     case 'SET_MOVIES':
       return { ...state, movies: action.payload };
@@ -54,6 +55,8 @@ function rootReducer(state, action) {
         user: { name: '', email: '', password: '' },
         favourites: [],
       };
+    case 'DELETE_HISTORY':
+      return { ...state, history: [] };
     default:
       return state;
   }

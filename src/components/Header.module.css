@@ -1,63 +1,62 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 16px 30px;
 }
 .logo {
-    
 }
 
 .button {
-    margin-left: 20px;
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    border: 2px solid  #BC9CFF;
-    border-radius: 22px;
-    transition: .9s all;
-    cursor: pointer;
-    transition: all 0.4s linear;
-    display: flex;
-    align-items: center;
-    height: 55px;
+  margin-left: 20px;
+  color: white;
+  font-size: 20px;
+  padding: 0 20px;
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border: 2px solid #bc9cff;
+  border-radius: 22px;
+  transition: 0.9s all;
+  cursor: pointer;
+  transition: all 0.4s linear;
+  display: flex;
+  align-items: center;
+  height: 55px;
 }
 .button:hover {
-    color: white; 
-    border-color: rgba(31, 32, 65, 0.5); 
+  color: white;
+  border-color: rgba(31, 32, 65, 0.5);
 }
 .buttonText {
-    overflow:hidden; 
-    white-space:nowrap; 
-    text-overflow: ellipsis;
-    max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100px;
 }
 .burgerMenu {
-    display: none;
-    color: white;
-    font-size: 20px;
-    padding: 10px 20px;
-    background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
-    border: 2px solid  #BC9CFF;
-    border-radius: 22px;
-    transition: .9s all;
-    cursor: pointer;
-    transition: all 0.4s linear;
+  display: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border: 2px solid #bc9cff;
+  border-radius: 22px;
+  transition: 0.9s all;
+  cursor: pointer;
+  transition: all 0.4s linear;
 }
 .burgerMenu:hover {
-    color: white;  
-    border-color: rgba(31, 32, 65, 0.5); 
+  color: white;
+  border-color: rgba(31, 32, 65, 0.5);
 }
 @media screen and (max-width: 980px) {
-    header {
-        padding: 16px 10px;
-    }
-    .button {
-        margin: 1rem 0;
-    } 
-    .burgerMenu {
-        display: block;
-    }
+  header {
+    padding: 16px 10px;
+  }
+  .button {
+    margin: 1rem 0;
+  }
+  .burgerMenu {
+    display: block;
+  }
 }

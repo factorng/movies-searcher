@@ -7,15 +7,18 @@ import { setInputSearch } from '../store/actions/actions';
 import styles from './History.module.css';
 
 export default function History() {
-  const history = useSelector((state) => state.history);
+  let history = useSelector((state) => state.history);
   const dispatch = useDispatch();
-
+  history = history.filter(
+    (element, pos, self) => self.indexOf(element) === pos,
+  );
   return (
     <section className={styles.history}>
       <h3>History</h3>
       <ul className={styles.historyList}>
         {history.map((elem, i) => (
-          <li key={elem} className={styles.historyListItem}>
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={i} className={styles.historyListItem}>
             <NavLink
               exact
               to="/"
