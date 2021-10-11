@@ -1,21 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleLoginPopup } from '../store/actions/actions';
+import { useSelector } from 'react-redux';
 
 // eslint-disable-next-line react/prop-types
 const ProtectedRoute = ({ component: Component, path, ...props }) => {
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    if (!user.name) {
-      dispatch(toggleLoginPopup());
-    }
-  }, [user]);
+
   return (
     <Route path={path}>
-      {() => (user.name ? <Component {...props} /> : <Redirect to="/" />)}
+      {() => (user.name ? <Component {...props} /> : <Redirect to="/sign-in" />)}
     </Route>
   );
 };

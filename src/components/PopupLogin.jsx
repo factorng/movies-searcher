@@ -1,24 +1,27 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PopupWithForm from './PopupWithForm';
 import useFormWithValidation from '../hooks/useFormWithValidation';
 import {
-  toggleLoginPopup,
   createUser,
   setFavourites,
+  deleteHistory,
 } from '../store/actions/actions';
 import styles from './PopupWithForm.module.css';
 
-function PopupLogin() {
+// eslint-disable-next-line react/prop-types
+function PopupLogin({ isOpen }) {
   const {
     values, handleChange, errors, isValid, resetForm,
   } = useFormWithValidation();
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.popupsIsOpen.login);
+  const history = useHistory();
 
   function handleClose() {
-    dispatch(toggleLoginPopup());
+    history.push('/');
     resetForm({ email: '', password: '' });
   }
 
@@ -33,12 +36,13 @@ function PopupLogin() {
       if (userFromLocalStorage.user.password === password) {
         dispatch(createUser(userFromLocalStorage.user));
         dispatch(setFavourites(userFromLocalStorage.favourites));
+        dispatch(deleteHistory());
         handleClose();
       } else {
-        alert('wrong password');
+        history.push('/sign-in/info?data=Wrong password');
       }
     } else {
-      alert('User not found');
+      history.push('/sign-in/info?data=User not found');
     }
   }
 
@@ -93,3 +97,7 @@ function PopupLogin() {
 }
 
 export default PopupLogin;
+
+PopupLogin.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};
