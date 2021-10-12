@@ -57,6 +57,8 @@ function rootReducer(state, action) {
       };
     case 'DELETE_HISTORY':
       return { ...state, history: [] };
+    case 'SHOW_PRELOADER':
+      return { ...state, preloader: action.payload };
     default:
       return state;
   }

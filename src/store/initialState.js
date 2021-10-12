@@ -8,4 +8,5 @@ export default {
     auth: false,
   },
   history: [],
+  preloader: false,
 };

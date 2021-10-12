@@ -13,9 +13,11 @@ import Popups from './components/Popups';
 import ProtectedRoute from './components/ProtectedRoute';
 import History from './components/History';
 import Favourites from './components/Favourites';
+import Preloader from './components/Preloader';
 
 function App() {
   const inputSearch = useSelector((state) => state.inputSearch);
+  const showPreloader = useSelector((state) => state.preloader);
   const dispatch = useDispatch();
   useEffect(() => dispatch(findMovies()), [inputSearch]);
 
@@ -25,14 +27,14 @@ function App() {
       <Search />
       <Switch>
         <Route exact path="/">
-          <Cards />
+          {showPreloader ? <Preloader /> : <Cards />}
         </Route>
         <Route exact path="/film/:id">
           <CardInDetails />
         </Route>
         <Route path={['/sign-in', '/sign-up']}>
           <Popups />
-          <Cards />
+          {showPreloader ? <Preloader /> : <Cards />}
         </Route>
         <ProtectedRoute component={Favourites} path="/favourites" />
         <ProtectedRoute component={History} path="/history" />
