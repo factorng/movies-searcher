@@ -14,7 +14,9 @@ export default function Favourites() {
           ))}
         </section>
       ) : (
-        <section className={styles.notFound}>Movies not found...</section>
+        <section className={styles.notFound}>
+          Nothing added to favourites...
+        </section>
       )}
     </>
   );

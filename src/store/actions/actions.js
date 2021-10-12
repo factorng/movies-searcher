@@ -51,11 +51,15 @@ export function logout() {
 export function deleteHistory() {
   return { type: 'DELETE_HISTORY' };
 }
+export function showPreloader(value) {
+  return { type: 'SHOW_PRELOADER', payload: value };
+}
 export function findMovies() {
   return async (dispatch, getState) => {
     const { inputSearch } = getState();
     try {
       let responce;
+      dispatch(showPreloader(true));
       if (inputSearch.length === 0) {
         responce = await fetch(
           `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
@@ -67,8 +71,10 @@ export function findMovies() {
       }
       const json = await responce.json();
       dispatch(setMovies(json.results));
+      dispatch(showPreloader(false));
     } catch (err) {
       console.log(err);
+      dispatch(showPreloader(false));
     }
   };
 }
