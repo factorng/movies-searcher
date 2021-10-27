@@ -1,7 +1,7 @@
 /* eslint-disable no-shadow */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import { findMovies } from './store/actions/actions';
 import Main from './components/Main';
 import Header from './components/Header';
@@ -18,8 +18,12 @@ import Preloader from './components/Preloader';
 function App() {
   const inputSearch = useSelector((state) => state.inputSearch);
   const showPreloader = useSelector((state) => state.preloader);
+  const history = useHistory();
   const dispatch = useDispatch();
-  useEffect(() => dispatch(findMovies()), [inputSearch]);
+  useEffect(() => {
+    dispatch(findMovies());
+    history.push('/');
+  }, [inputSearch]);
 
   return (
     <Main>

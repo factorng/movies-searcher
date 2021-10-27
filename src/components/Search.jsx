@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import useDebounce from '../hooks/useDebounce';
 import { setInputSearch } from '../store/actions/actions';
 
 import styles from './Search.module.css';
 
 export default function Search() {
-  const location = useLocation();
   const [input, setInput] = useState('');
   const inputSearch = useSelector((state) => state.inputSearch);
   const dispatch = useDispatch();
@@ -35,7 +33,6 @@ export default function Search() {
         className={styles.searchInput}
         type="search"
         placeholder="Popular movies"
-        disabled={location.pathname !== '/'}
       />
     </form>
   );
