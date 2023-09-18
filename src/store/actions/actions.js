@@ -1,5 +1,5 @@
-import API_KEY from '../../utils/apiKey';
 import store from '../store';
+import { getMoviesByQuery } from '../../utils/api';
 
 export function setInputSearch(value) {
   return { type: 'INPUT_SEARCH', payload: value };
@@ -32,6 +32,9 @@ export function toggleLoginPopup() {
 export function toggleAuthPopup() {
   return { type: 'TOGGLE_AUTH_POPUP' };
 }
+export function closeAllPopups() {
+  return { type: 'CLOSE_POPUPS' };
+}
 export function createUser(value) {
   const userToLocalStorage = { user: value, favourites: [] };
   if (localStorage.getItem(value.email)) {
@@ -51,22 +54,10 @@ export function logout() {
 export function findMovies() {
   return async (dispatch, getState) => {
     const { inputSearch } = getState();
-    try {
-      let responce;
-      if (inputSearch.length === 0) {
-        responce = await fetch(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
-        );
-      } else {
-        responce = await fetch(
-          `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${inputSearch}&page=1&include_adult=false`,
-        );
-      }
-      const json = await responce.json();
-      dispatch(setMovies(json.results));
-      console.log('find movies');
-    } catch (err) {
-      console.log(err);
-    }
+    const movies = await getMoviesByQuery(inputSearch);
+    dispatch(setMovies(movies));
   };
+}
+export function toggleLanguage() {
+  return { type: 'LANGUAGE' };
 }

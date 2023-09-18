@@ -6,7 +6,6 @@ import Main from './components/Main';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Cards from './components/Cards';
-import Search from './components/Search';
 import CardInDetails from './components/CardInDetails';
 import PopupRegister from './components/PopupRegister';
 import PopupLogin from './components/PopupLogin';
@@ -21,7 +20,6 @@ function App() {
   return (
     <Main>
       <Header />
-      <Search />
       <PopupRegister />
       <PopupLogin />
       <Switch>

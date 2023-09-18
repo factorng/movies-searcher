@@ -1,7 +1,6 @@
-.popup {
+.overlay {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 99;
   top: 0;
@@ -10,66 +9,68 @@
   align-items: center;
   justify-content: center;
 }
-.popupOpen {
+.title {
+  text-align: center;
+}
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+.open {
   display: flex;
 }
-.popupForm {
-  background-color: white;
+.form {
+  color: white;
+  background: rgba(0,0,0,.9);
   border-radius: 22px;
-  width: 320px;
   position: relative;
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #bc9cff;
 }
-.popupButtonClose {
+.close-button {
   position: absolute;
-  top: -40px;
-  right: -25px;
+  top: 5px;
+  right: 5px;
   background: transparent;
   border: 2px solid white;
   border-radius: 50%;
   color: white;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 30px;
-  width: 40px;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.field {
+  position: relative;
+}
+.input {
+  margin: 10px 10px 70px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 30px;
   height: 40px;
 }
-.popupInputField {
-  position: relative;
-  margin: 20px 0 70px 0;
-}
-.popupInputError {
+.error {
   display: block;
   position: absolute;
   color: tomato;
   font-size: 14px;
   padding-top: 3px;
+  top: 75px;
 }
-.popupButtonSubmit {
-  margin-top: auto;
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  padding: 10px 20px;
-  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-  border: 2px solid #bc9cff;
-  border-radius: 22px;
-  transition: 0.9s all;
-  cursor: pointer;
-  transition: all 0.4s linear;
-  height: 55px;
-}
-.popupButtonSubmit:hover {
-  color: white;
-  border-color: rgba(31, 32, 65, 0.5);
-}
-.popupButtonSubmitDisabled {
-  background: lightgray;
+
+@media screen and (max-width: 870px) {
+  .form {
+    padding: 5px;
+  }
 }
 @media screen and (max-width: 500px) {
-  .popupForm {
-    width: 220px;
+  .form {
+    width: 300px;
   }
 }

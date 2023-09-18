@@ -1,27 +1,50 @@
-.searchForm {
-    background-color: white;
-    padding: 15px 30px;
+.search {
+    padding: 15px 0;
+    display: flex;
+    position: relative;
+    width: 50%;
 }
-.searchInput {
-    width: 30%;
+.input {
     display: block;
     box-sizing: border-box;
     border: 0;
     border: 1px solid rgba(31, 32, 65, 0.25);
-    border-radius: 4px;
-    padding: 5px;
+    border-radius: 30px;
+    padding: 15px;
     margin-left: auto;
+    height: 40px;
+    padding-right: 100px;
+}
+.button {
+    border: 0;
+    position: absolute;
+    right: 0px;
 }
 @media screen and (max-width: 980px) {
-    .searchForm {
-        padding: 15px 10px;
+    .search {
+        padding: 10px 15px;
+        width: inherit;
     }
-    .searchInput {
-        width: 60%;
+    .input {
+        margin: 0;
     }
 }
-@media screen and (max-width: 500px) {
-    .searchInput {
+@media screen and (max-width: 870px) {
+    .search {
+        padding-left: 0;
+    }
+    .input {
+        margin: 0;
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .input {
         width: 100%;
+        padding-right: 65px;
+        font-size: 12px;
+    }
+    .button {
+        right: -25px;
     }
 }

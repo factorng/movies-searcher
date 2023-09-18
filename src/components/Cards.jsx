@@ -2,6 +2,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { int } from '../int/ru-eng';
 import styles from './Cards.module.css';
 import Card from './Card';
 
@@ -11,6 +12,7 @@ export default function Cards() {
   const favouritesIds = useSelector((state) => state.favourites).map(
     (f) => f.id,
   );
+  const lang = useSelector((state) => state.lang);
   const location = useLocation();
 
   const cardsToRender = () => {
@@ -40,7 +42,7 @@ export default function Cards() {
         </section>
       );
     }
-    return <section className={styles.notFound}>Movies not found...</section>;
+    return <section className={styles.notFound}>{int[lang].Cards.notFound}</section>;
   };
 
   return <>{cardsToRender()}</>;

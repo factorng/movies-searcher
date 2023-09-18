@@ -1,0 +1,23 @@
+.button {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+  border: 2px solid #bc9cff;
+  border-radius: 22px;
+  cursor: pointer;
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button:hover {
+}
+.button:active {
+    border-color: rgba(31, 32, 65, 0.5);
+}
+.disabled {
+    background: grey;
+    border: none;
+  }

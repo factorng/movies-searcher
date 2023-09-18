@@ -1,44 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# The site for movies and tv shows search
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+React, ccs modules, redux, redux-thunk, kinopoisk.dev API
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Movies and tv shows search
+- Users registration via local storage
+- Add movie/tv show to favorites
+- Search history
+- Desktop and mobile view
+- Additional information about each movie
+- Routes /favourites and /history available only for registered users
+- Language toggle
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Working example
 
-### `npm test`
+[https://factorng.github.io/movies-searcher/](https://factorng.github.io/movies-searcher/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Функциональные возможности
 
-### `npm run build`
+- сохранение фильмов в избранное
+- регистрация и авторизация реализована с помощью LocalStorage
+- формы авторизации и регистрации с валидацией полей
+- вкладка history содержит поисковые запросы пользователя
+- роуты /favourites и /history доступны только зарегистрированным пользователям
+- избранное сохранется в Local Storage для каждого пользователя
+- у каждого фильма есть страница с расширенным описанием
+- проект адаптирован под мобильные устройства
+- возможность сены языка
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Ссылка на GitHub Pages
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[https://factorng.github.io/movies-searcher/](https://factorng.github.io/movies-searcher/)

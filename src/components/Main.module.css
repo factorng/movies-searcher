@@ -1,8 +1,12 @@
 .main {
     max-width: 1440px;
-    margin: 0 auto;
-    min-height: 100vh;
+    margin: 40px auto;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
-    
+    border: 10px solid rgba(213, 211, 209, .3);
+    border-radius: 20px;
+    min-height: calc(100vh - 80px - 20px);
+    background: rgb(71, 41, 78);
+    background: radial-gradient(circle, rgba(71,41,78,1) 19%, rgba(46,42,91,1) 100%); 
 }

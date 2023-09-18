@@ -1,51 +1,25 @@
 .card {
-    background-color: white;
+    background-color: black;
+    color: white;
     border-radius: 22px;
     overflow: hidden;
     box-sizing: border-box;
     position: relative;
+    font-size: 0;
 }
 .title {
     font-weight: bold;
 }
 .image {
-    width: 300px;
-    height: 400px;
-    object-fit:cover;
-    overflow: hidden;
+    width: 100%;
 }
 .description {
-    padding: 15px;
-    height: 150px;
-}
-.more {
-    text-decoration: none;
-    color: rgba(31, 32, 65, 0.5);
+    text-align: center;
+    padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, .7);
     position: absolute;
-    padding: 15px;
-    bottom: 10px;
-    right: 0;
-}
-.more:hover {
-    color: black;
-}
-.starButton {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 15px;
-    position: absolute;
-    bottom: 10px;
-}
-.starButton::after {
-    transition: opacity 0.4s ease;
-    opacity: 0;
-    content: attr(data-button-tooltip);
-    color: rgba(31, 32, 65, 0.5);
-    position: absolute;
-    width: 200px
-}
-
-.starButton:hover::after {
-    opacity: 1;
+    z-index: 3;
+    bottom: 0;
+    width: 100%;
+    font-size: 16px;
 }

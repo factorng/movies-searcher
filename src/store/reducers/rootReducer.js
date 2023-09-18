@@ -20,14 +20,22 @@ function rootReducer(state, action) {
     case 'TOGGLE_AUTH_POPUP':
       return {
         ...state,
-        popupsIsOpen: { ...state.popupsIsOpen, auth: !state.popupsIsOpen.auth },
+        popupsIsOpen: { login: false, auth: !state.popupsIsOpen.auth },
       };
     case 'TOGGLE_LOGIN_POPUP':
       return {
         ...state,
         popupsIsOpen: {
-          ...state.popupsIsOpen,
+          auth: false,
           login: !state.popupsIsOpen.login,
+        },
+      };
+    case 'CLOSE_POPUPS':
+      return {
+        ...state,
+        popupsIsOpen: {
+          auth: false,
+          login: false,
         },
       };
     case 'CREATE_USER':
@@ -53,6 +61,11 @@ function rootReducer(state, action) {
         ...state,
         user: { name: '', email: '', password: '' },
         favourites: [],
+      };
+    case 'LANGUAGE':
+      return {
+        ...state,
+        lang: state.lang === 'ru' ? 'eng' : 'ru',
       };
     default:
       return state;

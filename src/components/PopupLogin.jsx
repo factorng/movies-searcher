@@ -8,6 +8,7 @@ import {
   createUser,
   setFavourites,
 } from '../store/actions/actions';
+import { int } from '../int/ru-eng';
 import styles from './PopupWithForm.module.css';
 
 function PopupLogin() {
@@ -16,6 +17,7 @@ function PopupLogin() {
   } = useFormWithValidation();
   const dispatch = useDispatch();
   const isOpen = useSelector((state) => state.popupsIsOpen.login);
+  const lang = useSelector((state) => state.lang);
 
   function handleClose() {
     dispatch(toggleLoginPopup());
@@ -35,10 +37,10 @@ function PopupLogin() {
         dispatch(setFavourites(userFromLocalStorage.favourites));
         handleClose();
       } else {
-        alert('wrong password');
+        alert(int[lang].PopupLogin.wrongPassword);
       }
     } else {
-      alert('User not found');
+      alert(int[lang].PopupLogin.userNotFound);
     }
   }
 
@@ -46,44 +48,44 @@ function PopupLogin() {
     <PopupWithForm
       isOpen={isOpen}
       onClose={handleClose}
-      title="Log In"
+      title={int[lang].PopupLogin.PopupWithForm.title}
       onSubmit={handleSubmit}
-      buttonText="Log in"
+      buttonText={int[lang].PopupLogin.PopupWithForm.buttonText}
       submitEnable={isValid}
     >
       <>
-        <div className={styles.popupInputField}>
-          <label htmlFor="email">Email</label>
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="email">{int[lang].PopupLogin.Fields.labels.email}</label>
           <input
             id="email"
-            className="popupInput"
+            className={styles.input}
             type="email"
             value={values.email || ''}
             onChange={handleChange}
             name="email"
             minLength="5"
             maxLength="40"
-            placeholder="Enter email"
+            placeholder={int[lang].PopupLogin.Fields.input.placeholder.email}
             pattern="^[^@]+@[^@.]+\.[^@]+$"
             required
           />
-          <span className={styles.popupInputError}>{errors.email || ''}</span>
+          <span className={styles.error}>{errors.email || ''}</span>
         </div>
-        <div className={styles.popupInputField}>
-          <label htmlFor="password">Password</label>
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="password">{int[lang].PopupLogin.Fields.labels.password}</label>
           <input
             id="password"
-            className="popupInput"
+            className={styles.input}
             type="password"
             value={values.password || ''}
             onChange={handleChange}
             name="password"
             minLength="5"
             maxLength="40"
-            placeholder="Enter password"
+            placeholder={int[lang].PopupLogin.Fields.input.placeholder.password}
             required
           />
-          <span className={styles.popupInputError}>
+          <span className={styles.error}>
             {errors.password || ''}
           </span>
         </div>

@@ -1,46 +1,39 @@
 /* eslint-disable no-shadow */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { int } from '../int/ru-eng';
+import { getMovieById } from '../utils/api';
+import placeholder from '../images/no-cover.png';
 import styles from './CardInDetails.module.css';
-
-const API_KEY = '5e5a3994082d5957cb6a987f74121734';
 
 export default function CardInDetails() {
   const { id } = useParams();
   const [cardData, setCardData] = useState({});
-
-  const getMovieById = async (id) => {
-    try {
-      const responce = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,
-      );
-      const json = await responce.json();
-      setCardData(json);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const lang = useSelector((state) => state.lang);
   useEffect(() => {
-    getMovieById(id);
+    (async function () {
+      if (id) {
+        setCardData(await getMovieById(id));
+      }
+    }());
   }, [id]);
-  return (
+  return cardData.rating ? (
     <div className={styles.card}>
-      <h3>{cardData.title}</h3>
-      <p>{`Tagline: ${cardData.tagline}`}</p>
-      <p>{`Average vote: ${cardData.vote_average}`}</p>
-      <p>{`Release date: ${cardData.release_date}`}</p>
-      <p>
-        Home page:
-        <a href={cardData.homepage} alt={`${cardData.title} homepage`}>
-          {cardData.homepage}
-        </a>
-      </p>
-      <p>{cardData.overview}</p>
+      <h3 className={styles.title}>{cardData.name}</h3>
       <img
-        alt={`poster to ${cardData.title} movie`}
-        src={`https://image.tmdb.org/t/p/w500${cardData.poster_path}`}
+        alt={`постер к фильму ${cardData.name}`}
+        src={`${cardData?.poster?.url}`}
         className={styles.poster}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = placeholder;
+        }}
       />
+      <p>{`${int[lang].CardInDetails.description} ${cardData.description}`}</p>
+      <p>{`${int[lang].CardInDetails.rating} ${Number.parseFloat(cardData.rating.kp).toFixed(1)}`}</p>
+      <p>{`${int[lang].CardInDetails.year} ${cardData?.year ? `${cardData.year} год` : 'неизвестно'}`}</p>
+      <p>{`${int[lang].CardInDetails.country} ${cardData.countries.map((country) => country.name).join(', ')}`}</p>
     </div>
-  );
+  ) : ('');
 }
