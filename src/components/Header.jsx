@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, NavLink } from 'react-router-dom';
-import { logout } from '../store/actions/actions';
+import {
+  toggleAuthPopup,
+  toggleLoginPopup,
+  logout,
+} from '../store/actions/actions';
+import { int } from '../int/ru-eng';
 import Menu from './Menu';
+import Search from './Search';
+import Button from './Button';
 import styles from './Header.module.css';
-import logo from '../images/Logo.png';
 import logoutImg from '../images/logout.png';
 
 export default function Header() {
@@ -12,7 +18,15 @@ export default function Header() {
   const location = useLocation();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const user = useSelector((state) => state.user);
-
+  const lang = useSelector((state) => state.lang);
+  const registerButtonHandler = () => {
+    dispatch(toggleAuthPopup());
+    setShowMobileMenu(false);
+  };
+  const loginButtonHandler = () => {
+    dispatch(toggleLoginPopup());
+    setShowMobileMenu(false);
+  };
   const logOutButtonHandler = () => {
     dispatch(logout());
     setShowMobileMenu(false);
@@ -23,54 +37,36 @@ export default function Header() {
   const userData = () => {
     if (user.name) {
       return (
-        <button
-          onClick={logOutButtonHandler}
-          type="button"
-          className={styles.button}
-        >
-          <span className={styles.buttonText}>{user.name}</span>
-          <img src={logoutImg} alt="Logout" />
-        </button>
+        <Button type="button" title={user.name} handleClick={logOutButtonHandler} styleClass={styles.button}>
+          <img src={logoutImg} alt={int[lang].Header.Button.logOut} />
+        </Button>
       );
     }
     return (
       <>
-        <NavLink
-          exact
-          to="/sign-in"
-          className={styles.button}
-          activeClassName={styles.menu__item_active}
-        >
-          Log In
-        </NavLink>
-        <NavLink
-          exact
-          to="/sign-up"
-          className={styles.button}
-          activeClassName={styles.menu__item_active}
-        >
-          Register
-        </NavLink>
+        <Button type="button" title={int[lang].Header.Button.login} handleClick={loginButtonHandler} />
+        <Button type="button" title={int[lang].Header.Button.register} handleClick={registerButtonHandler} styleClass={styles.button} />
       </>
     );
   };
   return (
     <header>
-      <NavLink exact to="/">
-        <img src={logo} alt="Логотип Фото дня" className={styles.logo} />
+      <NavLink
+        exact
+        to="/"
+        className={styles.logo}
+        activeClassName={styles['item-active']}
+      >
+        Moovies
       </NavLink>
-
-      <Menu
-        login={userData}
-        showMobileMenu={showMobileMenu}
-        setShowMobileMenu={setShowMobileMenu}
-      />
+      <Search />
+      <Menu login={userData} showMobileMenu={showMobileMenu} />
       <button
-        className={styles.burgerMenu}
+        className={styles.burger}
         type="button"
         onClick={() => setShowMobileMenu((prev) => !prev)}
       >
-        MENU
+        {int[lang].Header.Button.burger}
       </button>
     </header>
   );

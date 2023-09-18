@@ -2,71 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { int } from '../int/ru-eng';
 import {
   addToFavourites,
   removeFromFavourites,
 } from '../store/actions/actions';
 import styles from './Card.module.css';
-import star from '../images/star.png';
-import starBorder from '../images/star_border.png';
-import placeholder from '../images/no-cover.png';
+import AddToFavouritesButton from './AddToFavoritesButton';
+import Poster from './Poster';
 
 export default function Card({ movie, inFavourites }) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const {
-    poster_path: poster, title, vote_average: raiting, id,
+    poster, name, rating, id,
   } = movie;
-
-  const handleToggleFavouritesButton = (favouriteMovie) => {
-    if (!inFavourites) {
-      dispatch(addToFavourites(favouriteMovie));
-    } else {
-      dispatch(removeFromFavourites(favouriteMovie.id));
-    }
-  };
-
-  const buttonFavourites = () => user.name && (
-  <button
-    onClick={() => handleToggleFavouritesButton(movie)}
-    type="button"
-    className={styles.starButton}
-    data-button-tooltip={
-          inFavourites ? 'remove from favouretes' : 'add to favouretes'
-        }
-  >
-    <img
-      alt="star"
-      src={inFavourites ? star : starBorder}
-      className={styles.starImage}
-    />
-  </button>
-  );
+  const lang = useSelector((state) => state.lang);
+  const handleToggleFavouritesButton = (favouriteMovie) => (
+    inFavourites ? dispatch(removeFromFavourites(favouriteMovie.id))
+      : dispatch(addToFavourites(favouriteMovie)));
 
   return (
     <div className={styles.card}>
-      <img
-        className={styles.image}
-        alt={`poster to ${title} movie`}
-        src={`https://image.tmdb.org/t/p/w300${poster}`}
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = placeholder;
-        }}
-      />
-
+      <NavLink exact to={`/film/${id}`} className={styles.more}>
+        <Poster poster={poster} name={name} />
+      </NavLink>
       <div className={styles.description}>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title}>{name}</p>
         <p className={styles.raiting}>
-          Film raiting:
-          {' '}
-          {raiting}
+          {`${int[lang].Card.raiting} ${Number.parseFloat(rating).toFixed(1)}`}
         </p>
       </div>
-      <NavLink exact to={`/film/${id}`} className={styles.more}>
-        More...
-      </NavLink>
-      {buttonFavourites()}
+      {user.name
+        && (
+        <AddToFavouritesButton
+          inFavourites={inFavourites}
+          movie={movie}
+          handleToggleFavouritesButton={handleToggleFavouritesButton}
+        />
+        )}
     </div>
   );
 }

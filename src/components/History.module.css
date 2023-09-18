@@ -8,19 +8,19 @@
   width: 50%;
   min-height: 55vh;
 }
-.historyList {
+.list {
   list-style: none;
   padding: 10px 0;
 }
-.historyListItem {
+.item {
   margin: 10px 0;
 }
-.historyListLink {
+.link {
   text-decoration: none;
   color: rgba(31, 32, 65, 0.5);
 }
 
-.historyListLink:hover {
+.link:hover {
   color: black;
 }
 @media screen and (max-width: 1200px) {

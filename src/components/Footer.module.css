@@ -1,20 +1,20 @@
-footer {
+.footer {
     margin-top: auto;
-    background-color: white;
     padding: 16px 0;
+    color: white;
 }
 .logo {
     padding: 30px;;
 }
 
-.footerBottom {
+.bottom {
     flex-basis: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
-    border-top: 1px solid rgba(31, 32, 65, 0.25);
+    border-top: 2px solid rgba(31, 32, 65, 0.25);
 }
-.footerBottom>p  {
+.bottom>p  {
     padding-left: 30px;
 }
 

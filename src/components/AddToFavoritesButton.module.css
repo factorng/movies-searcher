@@ -1,0 +1,30 @@
+
+.starButton {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+.starButton::after {
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    content: attr(data-button-tooltip);
+    position: absolute;
+    top: 0;
+    left: 40px;
+    display: block;
+    padding: 3px;
+    border-radius: 10px;
+    height: 40px;
+    width: 100px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, .7);
+}
+.starButton:hover::after {
+    opacity: 1;
+}
