@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.a458d3c4.chunk.css",
-    "main.js": "/static/js/main.ebb9fc63.chunk.js",
-    "main.js.map": "/static/js/main.ebb9fc63.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b30ad381.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b30ad381.js.map",
-    "static/css/2.679831fc.chunk.css": "/static/css/2.679831fc.chunk.css",
-    "static/js/2.4f7cf0d4.chunk.js": "/static/js/2.4f7cf0d4.chunk.js",
-    "static/js/2.4f7cf0d4.chunk.js.map": "/static/js/2.4f7cf0d4.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.679831fc.chunk.css.map": "/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.a458d3c4.chunk.css.map": "/static/css/main.a458d3c4.chunk.css.map",
-    "static/js/2.4f7cf0d4.chunk.js.LICENSE.txt": "/static/js/2.4f7cf0d4.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/robotoslab-regular.d3d7cd6d.woff"
+    "main.css": "/movies-searcher/static/css/main.bcc03978.chunk.css",
+    "main.js": "/movies-searcher/static/js/main.6accb12f.chunk.js",
+    "main.js.map": "/movies-searcher/static/js/main.6accb12f.chunk.js.map",
+    "runtime-main.js": "/movies-searcher/static/js/runtime-main.4040cf5b.js",
+    "runtime-main.js.map": "/movies-searcher/static/js/runtime-main.4040cf5b.js.map",
+    "static/css/2.679831fc.chunk.css": "/movies-searcher/static/css/2.679831fc.chunk.css",
+    "static/js/2.e97dd487.chunk.js": "/movies-searcher/static/js/2.e97dd487.chunk.js",
+    "static/js/2.e97dd487.chunk.js.map": "/movies-searcher/static/js/2.e97dd487.chunk.js.map",
+    "index.html": "/movies-searcher/index.html",
+    "static/css/2.679831fc.chunk.css.map": "/movies-searcher/static/css/2.679831fc.chunk.css.map",
+    "static/css/main.bcc03978.chunk.css.map": "/movies-searcher/static/css/main.bcc03978.chunk.css.map",
+    "static/js/2.e97dd487.chunk.js.LICENSE.txt": "/movies-searcher/static/js/2.e97dd487.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/movies-searcher/static/media/robotoslab-regular.d3d7cd6d.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.b30ad381.js",
+    "static/js/runtime-main.4040cf5b.js",
     "static/css/2.679831fc.chunk.css",
-    "static/js/2.4f7cf0d4.chunk.js",
-    "static/css/main.a458d3c4.chunk.css",
-    "static/js/main.ebb9fc63.chunk.js"
+    "static/js/2.e97dd487.chunk.js",
+    "static/css/main.bcc03978.chunk.css",
+    "static/js/main.6accb12f.chunk.js"
   ]
 }
