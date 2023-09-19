@@ -19,6 +19,8 @@ React, ccs modules, redux, redux-thunk, kinopoisk.dev API
 
 [https://factorng.github.io/movies-searcher/](https://factorng.github.io/movies-searcher/)
 
+# Сервис для поиска фильмов и сериалов
+
 ## Функциональные возможности
 
 - сохранение фильмов в избранное
