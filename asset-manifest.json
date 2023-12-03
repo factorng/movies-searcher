@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.25621d29.chunk.css",
+    "main.css": "./static/css/main.6d41a37d.chunk.css",
     "main.js": "./static/js/main.6accb12f.chunk.js",
     "main.js.map": "./static/js/main.6accb12f.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.3ae0235e.js",
@@ -10,7 +10,7 @@
     "static/js/2.e97dd487.chunk.js.map": "./static/js/2.e97dd487.chunk.js.map",
     "index.html": "./index.html",
     "static/css/2.679831fc.chunk.css.map": "./static/css/2.679831fc.chunk.css.map",
-    "static/css/main.25621d29.chunk.css.map": "./static/css/main.25621d29.chunk.css.map",
+    "static/css/main.6d41a37d.chunk.css.map": "./static/css/main.6d41a37d.chunk.css.map",
     "static/js/2.e97dd487.chunk.js.LICENSE.txt": "./static/js/2.e97dd487.chunk.js.LICENSE.txt",
     "static/media/index.css": "./static/media/robotoslab-regular.d3d7cd6d.woff"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.3ae0235e.js",
     "static/css/2.679831fc.chunk.css",
     "static/js/2.e97dd487.chunk.js",
-    "static/css/main.25621d29.chunk.css",
+    "static/css/main.6d41a37d.chunk.css",
     "static/js/main.6accb12f.chunk.js"
   ]
 }
