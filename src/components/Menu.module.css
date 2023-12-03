@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
     padding: 0;
     z-index: 100;
     width: 100%;
@@ -43,42 +42,45 @@
 }
 @media screen and (max-width: 980px) {
     .menu {
-        width: 50vw;
         position: absolute;
+        width: 50vw;
+        height: 30vh;
         flex-direction: column;
-        top: 100px;
-        right: 10px;
         background: rgba(104,99,141,.97);
         padding: 10px;
-        margin: 0;
         border: 2px solid #bc9cff;
         border-radius: 20px;
+        top: 60px;
+        right: 0;
     }
     .items {
         flex-direction: column;
         justify-content: space-evenly;
         height: 150px;
-        padding: 0;
+        padding: 15px;
         text-align: center;
     }
     .item {
         font-size: 20px;
         margin: 0;
     }
-    .menu button:first-of-type {
-        margin: 10px 0;
+    .menu button {
+        margin: auto;
     }
 }
 @media screen and (max-width: 870px) {
     .menu {
         width: 400px;
-        top: 170px;
+        top: 160px;
         left: 10px;
     }
 }
 @media screen and (max-width: 400px) {
     .menu {
         width: 300px;
+        bottom: 0;
+        margin: 0 auto;
         left: 0;
+        right: 0;
     }
 }

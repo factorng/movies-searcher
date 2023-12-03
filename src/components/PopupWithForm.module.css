@@ -29,6 +29,7 @@
   flex-direction: column;
   justify-content: space-between;
   border: 2px solid #bc9cff;
+  margin: auto 0;
 }
 .close-button {
   position: absolute;
